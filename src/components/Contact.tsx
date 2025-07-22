@@ -299,7 +299,7 @@ const Contact = () => {
           className="mt-20 pt-8 border-t border-dark-border text-center"
         >
           <p className="text-gray-400">
-             2025 Sindiri Manikanta Swaroop. Built with React &  CSS.
+             2025 Sindiri Manikanta Swaroop. Built with React.
           </p>
         </motion.div>
       </div>

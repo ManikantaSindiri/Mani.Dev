@@ -99,7 +99,7 @@ const Experience = () => {
                 
                 <div className="mb-6">
                   <h4 className="text-xl font-semibold text-white mb-3">
-                    Project: "AUV Docking Prediction Using Machine Learning"
+                    Autonomous Underwater Docking Using Sonar-Based CNN Classification
                   </h4>
                   <p className="text-gray-300 leading-relaxed">
                     Developed ML models to predict Autonomous Underwater Vehicle (AUV) docking 
