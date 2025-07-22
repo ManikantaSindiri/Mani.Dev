@@ -65,7 +65,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
-             href="public\manish_resume.pdf"  // Path to the resume in public folder
+             href="/manish_resume.pdf"  // Path to the resume in public folder
              download
              whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(211, 47, 47, 0.5)" }}
              whileTap={{ scale: 0.95 }}
