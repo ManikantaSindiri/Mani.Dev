@@ -29,15 +29,18 @@ const ParticleBackground = () => {
 
     // Create particles
     for (let i = 0; i < 50; i++) {
+      // Slightly larger particles for better visibility
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
+        size: Math.random() * 2 + 1.5,
         opacity: Math.random() * 0.3 + 0.1,
       });
     }
+
+    let animationId = 0;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -78,12 +81,14 @@ const ParticleBackground = () => {
         });
       });
 
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
     animate();
 
     return () => {
+      // Cancel the animation frame to avoid running after unmount
+      if (animationId) cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resizeCanvas);
     };
   }, []);

@@ -11,29 +11,22 @@ const Achievements = () => {
 
   const achievements = [
     {
-      title: "IASc-INSA-NASI Summer Research Fellowship 2025",
-      description: "Selected for prestigious national research fellowship among top students nationwide for AUV + ML research",
+      title: "3rd Place – Sparktank Hackathon (2025)",
+      description: "Developed “BharatBox,” an IoT-based machine monitoring solution — won ₹20,000 prize.",
       icon: <Trophy className="w-8 h-8" />,
-      color: "from-yellow-400 to-orange-500",
+      color: "from-yellow-400 to-orange-500"
+    },
+    {
+      title: "IASc–INSA–NASI Research Fellow",
+      description: "Selected among top 1% nationwide for research internship at CSIR–CMERI. Project on AUV Docking Classification Using Sonar Image Data.",
+      color: "from-blue-400 to-purple-500",
       highlight: true
     },
     {
-      title: "Nationwide Research Selection",
-      description: "Among top students chosen nationwide for cutting-edge AUV and Machine Learning research project",
-      icon: <Star className="w-8 h-8" />,
-      color: "from-blue-400 to-purple-500"
-    },
-    {
-      title: "Real-world ML Projects",
-      description: "Successfully completed multiple machine learning projects with practical applications and real datasets",
+      title: "Top 3 – 'Samukuth' Coding Competition (ANITS)",
+      description: "Secured Top 3 position in the Samukuth coding competition held at ANITS.",
       icon: <Target className="w-8 h-8" />,
       color: "from-green-400 to-teal-500"
-    },
-    {
-      title: "Academic Excellence",
-      description: "Consistent academic performer with CGPA 9.1+ throughout B.Tech program",
-      icon: <Award className="w-8 h-8" />,
-      color: "from-purple-400 to-pink-500"
     },
     
   ];
@@ -92,7 +85,7 @@ const Achievements = () => {
         >
           {achievements.map((achievement, index) => (
             <motion.div
-              key={index}
+              key={`${achievement.title}-${index}`}
               variants={itemVariants}
               whileHover={{ 
                 scale: 1.05,
@@ -159,6 +152,116 @@ const Achievements = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Image Gallery Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="mt-24"
+        >
+          <motion.div
+            variants={itemVariants}
+            className="text-center mb-16"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              Work & <span className="gradient-text">Achievements Gallery</span>
+            </h3>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Visual highlights from my projects, research, and accomplishments
+            </p>
+          </motion.div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {[
+              {
+                title: "BharatBox - IoT Machine Monitoring",
+                image: "/achievements/bharatbox.jpg",
+                category: "Hackathon Project"
+              },
+              {
+                title: "AUV Sonar Research Project",
+                image: "/achievements/auv-sonar.jpg",
+                category: "Research Fellowship"
+              },
+              {
+                title: "Sparktank Hackathon Award",
+                image: "/achievements/sparktank-award.jpg",
+                category: "Competition Win"
+              },
+              {
+                title: "Research Presentation",
+                image: "/achievements/research-presentation.jpg",
+                category: "GMRIT Symposium"
+              },
+              {
+                title: "Coding Competition Certificate",
+                image: "/achievements/coding-cert.jpg",
+                category: "Samukuth Competition"
+              },
+              {
+                title: "Research Fellowship Announcement",
+                image: "/achievements/fellowship-announcement.jpg",
+                category: "IASc-INSA-NASI"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(211, 47, 47, 0.2)"
+                }}
+                className="relative group overflow-hidden rounded-xl border border-dark-border hover:border-primary/50 transition-all duration-300"
+              >
+                {/* Image Container */}
+                <div className="relative h-64 overflow-hidden bg-dark-card">
+                  <motion.img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-gradient-to-t from-dark-bg to-transparent pt-12">
+                    <h4 className="text-lg font-bold text-white mb-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-primary text-sm font-medium">
+                      {item.category}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Fallback Text (when image not loaded) */}
+                <div className="absolute inset-0 flex items-center justify-center bg-dark-card group-hover:bg-dark-card/80 transition-colors duration-300">
+                  <div className="text-center">
+                    <div className="text-4xl mb-2">📸</div>
+                    <p className="text-gray-400 text-sm px-4">
+                      {item.category}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-center mt-12 text-gray-400 text-sm"
+          >
+            Replace image paths in <code className="bg-dark-card px-2 py-1 rounded text-primary">/public/achievements/</code> with your actual project images
+          </motion.p>
         </motion.div>
       </div>
     </section>

@@ -82,6 +82,102 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Work & Projects Gallery */}
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="mb-20"
+        >
+          <motion.div
+            variants={itemVariants}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              My Work &<span className="gradient-text"> Projects</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Visual highlights from my recent projects and achievements
+            </p>
+          </motion.div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          >
+            {[
+              {
+                title: "BharatBox - IoT Solution",
+                image: "public\sparktank.jpg",
+                category: "Hackathon Winner"
+              },
+
+              {
+                title: "Research Presentation",
+                image: "public\gmrit.jpg",
+                category: "GMRIT Symposium"
+              },
+              {
+                title: "Coding Competition",
+                image: "public\anits.jpg",
+                category: "Samukuth ANITS"
+              },
+              {
+                title: "Fellowship Recognition",
+                image: "public\cmeri (1).jpg",
+                category: "IASc-INSA-NASI"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 15px 30px rgba(211, 47, 47, 0.15)"
+                }}
+                className="relative group overflow-hidden rounded-xl border border-dark-border hover:border-primary/50 transition-all duration-300"
+              >
+                <div className="relative h-56 bg-dark-card overflow-hidden">
+                  <motion.img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+
+                <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-gradient-to-t from-dark-bg to-transparent pt-8">
+                    <h4 className="text-white font-bold mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-primary text-sm">
+                      {item.category}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Placeholder when image not available */}
+                <div className="absolute inset-0 flex items-center justify-center bg-dark-card/50">
+                  <div className="text-center">
+                    <div className="text-4xl mb-2">🖼️</div>
+                    <p className="text-gray-400 text-xs px-2">
+                      {item.category}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Get In Touch Section */}
         <motion.div
           ref={ref}
           variants={containerVariants}

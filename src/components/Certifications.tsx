@@ -11,33 +11,39 @@ const Certifications = () => {
 
   const certifications = [
     {
-      title: "Python for Everybody",
-      issuer: "Youtube",
-      date: "2023",
-      description: "Comprehensive Python programming course covering data structures, web scraping, and databases.",
-      verified: true
+      title: "NPTEL Artificial Intelligence",
+      issuer: "IIT Madras",
+      date: "2025",
+      description: "Comprehensive understanding of AI concepts, algorithms, and applications.",
+      verified: true,
+      href: "public\Mani_npterl certifcate.pdf"
     },
     {
-      title: "HTML & CSS Web Design",
-      issuer: "FreecodeCamp",
-      date: "2023",
-      description: "Frontend web development fundamentals and responsive design principles.",
+      title: "IASc–INSA–NASI Research Fellow",
+      issuer: "Indian Academy of Sciences",
+      date: "2025",
+      description: "Based on the project 'AUV Docking Classification Using Sonar Image Data'.",
       verified: true
+      ,
+      href: "public\insa_certificate.jpg"
     },
     {
-      title: "Git & GitHub Basics",
-      issuer: "Youtube",
-      date: "2024",
-      description: "Version control systems, collaborative development, and open source contribution.",
-      verified: true
+      title: "Sparktank Hackathon (2025)",
+      issuer: "VITB",
+      date: "2025",
+      description: "3rd Place - Developed “BharatBox,” an IoT-based machine monitoring solution (20,000 prize).",
+      verified: true,
+      href: "public\sparktank _pic.jpg"
     },
     {
-      title: "Deep Learning Specialization",
-      issuer: "Youtube",
-      date: "In Progress",
-      description: "Advanced deep learning concepts, neural networks, and practical implementations.",
-      verified: false
-    }
+      title: "Research Internship on AUV Docking Classification",
+      issuer: "CSIR-CMERI",
+      date: "2025",
+      description: "Selected among top 1% nationwide for research internship at CSIR–CMERI.",
+      verified: true,
+      href: "public\mani_cmeri_certi (1).pdf"
+    },
+    
   ];
 
   const containerVariants = {
@@ -94,7 +100,7 @@ const Certifications = () => {
         >
           {certifications.map((cert, index) => (
             <motion.div
-              key={index}
+              key={`${cert.title}-${index}`}
               variants={itemVariants}
               whileHover={{ 
                 scale: 1.03,
@@ -131,15 +137,19 @@ const Certifications = () => {
                 {cert.description}
               </p>
               
-              {cert.verified && (
-                <motion.button
+              {cert.verified && cert.href && (
+                <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors duration-200"
+                  href={cert.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${cert.title}`}
+                  className="inline-flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors duration-200"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span className="text-sm font-medium">View Certificate</span>
-                </motion.button>
+                </motion.a>
               )}
             </motion.div>
           ))}

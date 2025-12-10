@@ -10,28 +10,29 @@ const Projects = () => {
   });
 
   const projects = [
-    {
-      title: "Electricity Billing System",
-      description: "Developed a command-line application to calculate and manage electricity bills using Python with advanced features for bill generation and management.",
-      tech: ["Python", "CLI", "Data Management"],
-      icon: <Zap className="w-6 h-6" />,
-      status: "Completed",
-      color: "from-blue-500 to-purple-600"
-    },
+    
     {
       title: "AUV Docking Classification",
       description: "Training CNN models on sonar image data to identify dock orientation in underwater environments for autonomous navigation systems.",
       tech: ["Python", "CNN", "Computer Vision", "Sonar Data"],
       icon: <Waves className="w-6 h-6" />,
-      status: "Ongoing",
+      status: "Completed",
       color: "from-green-500 to-teal-600"
     },
     {
-      title: "CNN-based Sonar Classification",
+      title: " TilesShowroom Website",
+      description: "Developed a user Friendly website , To choose and Select the home tiles with various categories and filters.",
+      tech: ["React", "JavaScripyt", "Tailwind CSS","AI Integration"],
+      icon: <Zap className="w-6 h-6" />,
+      status: "Ongoing",
+      color: "from-blue-500 to-purple-600"
+    },
+    {
+      title: "CNN-based Image  Classification on Outfit Selection",
       description: "Advanced deep learning model for classifying underwater objects using sonar imagery with high accuracy and real-time processing capabilities.",
       tech: ["TensorFlow", "CNN", "Image Processing"],
       icon: <Brain className="w-6 h-6" />,
-      status: "Planned",
+      status: "Ongoing",
       color: "from-orange-500 to-red-600"
     },
   ];
